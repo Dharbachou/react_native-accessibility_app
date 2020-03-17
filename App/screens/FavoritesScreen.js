@@ -1,20 +1,35 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, TextInput, Button, StyleSheet, Alert} from 'react-native';
 
 const FavoritesScreen = props => {
+    const [username, setUsername] = React.useState('');
+    const [password, setPassword] = React.useState('');
+
   return (
-    <View style={styles.screen}>
-      <Text>The Favorites Screen!</Text>
-    </View>
+      <View>
+          <TextInput
+              placeholder="Username"
+              value={username}
+              onChangeText={setUsername}
+          />
+          <TextInput
+              placeholder="Password"
+              value={password}
+              onChangeText={setPassword}
+              secureTextEntry
+          />
+          <Button title="Sign in" onPress={() => {
+              Alert.alert(
+                  'Success',
+                  'welcome!!!',
+                  [
+                      {text: 'OK', onPress: () => console.log('OK Pressed')},
+                  ],
+                  {cancelable: false},
+              );
+          }} />
+      </View>
   );
 };
-
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-});
 
 export default FavoritesScreen;

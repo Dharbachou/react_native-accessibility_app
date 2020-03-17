@@ -1,13 +1,13 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 
-const MealDetailScreen = ({ navigation }) => {
+const DishScreen = ({ navigation: { navigate } }) => {
   return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Details Screen</Text>
+        <Text>Dish Screen</Text>
         <Button
-            title="Go to Home..."
-            onPress={() => navigation.push('Home')}
+            title="Go Home..."
+            onPress={() => navigate('Home')}
         />
       </View>
   );
@@ -21,4 +21,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default MealDetailScreen;
+export default DishScreen;

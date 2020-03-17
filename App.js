@@ -1,27 +1,24 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
 import 'react-native-gesture-handler';
 import React from 'react';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import {NavigationContainer} from "@react-navigation/native";
-import { createStackNavigator } from '@react-navigation/stack';
 
 import HomeScreen from './App/screens/HomeScreen';
-import MealDetailScreen from './App/screens/MealDetailScreen';
+import DishScreen from './App/screens/DishScreen';
+import MenuScreen from './App/screens/MenuScreen';
+import FavoritesScreen from "./App/screens/FavoritesScreen";
 
-const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
 
 const App: () => React$Node = () => {
 	return (
 		<NavigationContainer>
-			<Stack.Navigator initialRouteName="MealDetailScreen">
-				<Stack.Screen name="Home" component={HomeScreen} />
-				<Stack.Screen name="MealDetailScreen" component={MealDetailScreen} />
-			</Stack.Navigator>
+			<Drawer.Navigator initialRouteName="Home">
+				<Drawer.Screen name="Home" component={HomeScreen} />
+				<Drawer.Screen name="Menu" component={MenuScreen} />
+				<Drawer.Screen name="Dish" component={DishScreen} />
+				<Drawer.Screen name="Favorites" component={FavoritesScreen} />
+			</Drawer.Navigator>
 		</NavigationContainer>
 	);
 };
